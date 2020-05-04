@@ -36,9 +36,6 @@ def ipv4():
 def ipv6():
     ip = ipv6Input.get()
     ips=ip.split("/")
-
-
-
     try:
         ipv6=Ipv6(ip)
         if len(ips)>1:
