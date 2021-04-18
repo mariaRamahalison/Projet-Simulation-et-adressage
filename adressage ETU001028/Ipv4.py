@@ -10,6 +10,7 @@ binaireMasque='11111111.11111111.11111111.11111111'
 class Ipv4:
     def __init__(self, ip):
         self.ip= ip
+        self.verifyIp(ip)
         self.adresseReseau=self.getAdresseReseau(ip)
         self.adresseDiffusion=self.getAdresseDiffusion(ip)
         self.masque=self.getMasque(ip)
@@ -18,6 +19,15 @@ class Ipv4:
         self.fin=self.getFin()
         self.nb=self.nbDispo()
 
+    def verifyIp(self,ip):
+        ips=ip.split("/")
+        ips=ips[0].split(".")
+        if len(ips)<0 or len(ips)>4:
+            raise Exception("ip invalide") 
+        for i in range(len(ips)):
+            if len(ips[i])>3:
+                raise Exception("ip invalide")
+  
     def nbDispo(self):
         ips=self.ip.split("/")
         nb=0

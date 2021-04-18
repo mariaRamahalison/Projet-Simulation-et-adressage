@@ -1,12 +1,32 @@
 class Ipv6:
     def __init__(self, ip):
         self.ip= ip
+        self.verifyIp(ip)
         self.abreviation=self.getAbreviation()
         self.adresseReseau=self.getAdresseReseau(ip)
         self.adresseDiffusion=self.getAdresseDiffusion(ip)
         self.complet=self.getAbrInv(ip)
 
-            
+    def nbDispo(self):
+        ips=self.ip.split("/")
+        nb=0
+        if len(ips)>1:
+            nb=32-int(ips[1])
+        else:
+            indice=self.getIndice(self.ip)
+            nb=classe[indice][2]
+        nb=(math.pow(2,nb))-2
+        return str(nb)
+
+    def verifyIp(self,ip):
+        ips=ip.split("/")
+        ips=ips[0].split(":")
+        if len(ips)<0 or len(ips)>8:
+            raise Exception("ip invalide") 
+        for i in range(len(ips)):
+            if len(ips[i])>4:
+                raise Exception("ip invalide")
+
     def getBin(self,ips):
         for i in range(len(ips)):
             if ips[i]!=":":
@@ -128,14 +148,14 @@ class Ipv6:
     def getAbrInv(self,ip):
         ips=ip.split("/")
         ip=self.addZeros(ips[0])
-        ip=self.addZero(ip)
+        # ip=self.addZero(ip)
         return ip 
 
     def addZeros(self,ip):
         ips=ip.split(":")
         taille=8-len(ips)
         zeros=ip.split("::")
-        if len(zeros)>=0:
+        if len(zeros)>1:
             taille=taille+1
             zero=self.getZero(taille,":")
             zeros[0]=zeros[0]+zero
@@ -154,7 +174,7 @@ class Ipv6:
         return ip
 
 
-ip="210F:0000:0000:0000:CCCC:0000:0000:000D"
+ip="34BA:000B:000B:0000:0000:0000:0000:0020"
 ipv6=Ipv6(ip)
-ip=ipv6.abreviation
+ip=ipv6.complet
 print(ip)
