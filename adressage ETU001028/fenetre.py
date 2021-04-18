@@ -42,7 +42,7 @@ mainapp = Tk()
 mainapp.title("IPV4")
 mainapp.geometry("1500x200")
 
-tree = ttk.Treeview(mainapp)
+tree = ttk.Treeview(mainapp,height=3)
 label = Label(mainapp, text="IPV4 ", font=("Arial", 12))
 label.place(x=10, y=10, anchor=NW)
 ipv4Input = Entry(mainapp, font=("Arial", 12))
