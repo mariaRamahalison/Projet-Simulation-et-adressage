@@ -63,11 +63,6 @@ class Switch:
                 self.peripheries[i][1].commutation(trame,appelantN)
                 if trame.message!="non":
                     self.apprentissage(self.peripheries[i][0],trame.macDest)
-    # def diffusionCom(self,trame,appelant):
-    #     for i in range(len(self.commutateurs)):
-    #         self.commutateurs[i].RequeteArp(trame,appelant)
-    #         if trame.macDest!=None:
-    #             break
-    
+
     
 

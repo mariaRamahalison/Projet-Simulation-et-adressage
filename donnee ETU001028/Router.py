@@ -23,6 +23,7 @@ class Router:
             if self.routage[i][2]==adresseReseau:
                 intf=self.routage[i][0]
                 macRouter=self.getMacRouter(intf)
+                self.mac=macRouter
                 trame.routers.append(macRouter)
         return intf
     

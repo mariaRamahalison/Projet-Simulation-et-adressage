@@ -86,7 +86,7 @@ class Ordinateur:
 
 
 # PC1-S1-PC2
-#     S1-R1-PC3
+#     S1-R1-S2-PC3
 #     S1-R1-R2-PC4
 
 S1=Switch(2,"s1")
@@ -98,13 +98,13 @@ pc4=Ordinateur("172.190.11","EE.EE.EE",S2,"255.0.0","172.180.01","pc4","172.190.
 
 
 peripherieR2=[]
-routageR2=[["eth/3",None,"172.190.00"],["eth/4",None,"172.190.00"]]
+routageR2=[["eth/4",None,"172.170.00"],["eth/5",None,"172.190.00"]]
 R2=Router("R2",routageR2,peripherieR2)
 
 peripherieR1=[["eth/1",S1,"E1.E1.E1"],["eth/2",S2,"E2,E2.E2"],["eth/3",R2,"E3.E3.E3"]]
-routageR1=[["eth/1",None,"172.160.00"],["eth/2",None,"172.180.00"],["eth/3",None,"172.190.00"]]
+routageR1=[["eth/1",None,"172.160.00"],["eth/2",None,"172.180.00"],["eth/3","172.170.00","172.190.00"]]
 R1=Router("R1",routageR1,peripherieR1)
-R2.peripheries=[["eth/3",R1,"E3.E3.E3"],["eth/4",pc4,"E4.E4.E4"]]
+R2.peripheries=[["eth/4",R1,"E3.E3.E3"],["eth/5",pc4,"E4.E4.E4"]]
 
 
 S1.setPeripheries([["F0/1",pc1],["F0/2",pc2],["F0/3",R1]])
