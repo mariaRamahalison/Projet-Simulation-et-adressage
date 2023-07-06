@@ -4,4 +4,3 @@ class Appelant:
         self.ip=ip
         self.mac=mac
         
-
