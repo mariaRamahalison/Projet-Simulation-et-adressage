@@ -4,6 +4,8 @@ from Trame import Trame
 class Router:
     def __init__(self,nom,routing,per):
         self.tableArp= []
+
+
         self.routage=routing
         self.nom=nom
         self.types="router"
@@ -12,8 +14,12 @@ class Router:
     def setIp(self,ip):
         self.ip=ip
     def setMac(self,mac):
+
+
         self.mac=mac
     def setPeripheries(self,per):
+
+        
         self.peripheries=per
 
     def verifyReseau(self,trame):

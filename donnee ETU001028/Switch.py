@@ -16,9 +16,13 @@ class Switch:
 
     def commutation(self,trame,appelant):
         port=self.getPort(appelant)
+
+
         self.apprentissage(port,appelant.mac)
         self.envoyer(trame,appelant)
         if trame.message=="non":
+
+            
             self.diffusion(trame,appelant)
         if trame.message!="non":
             self.AffichageMac()
