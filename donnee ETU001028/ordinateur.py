@@ -14,6 +14,9 @@ class Ordinateur:
         self.tableArp=[]
         self.types="ordi"
         self.nom=nom
+
+
+
         self.adresseReseau=reseau
     
     def commutation(self,trame,appelant):
@@ -26,6 +29,9 @@ class Ordinateur:
     def affichageArp(self):
         print(self.nom+":")
         print("table Arp:")
+
+
+        
         print(self.tableArp)
         print("**************")
 
