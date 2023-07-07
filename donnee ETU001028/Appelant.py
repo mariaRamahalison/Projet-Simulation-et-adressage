@@ -3,4 +3,9 @@ class Appelant:
         self.appelant=appelant
         self.ip=ip
         self.mac=mac
+        self.mac=mac
+        self.mac=mac
+        self.mac=mac
+        self.mac=mac
+        self.mac=mac
         
